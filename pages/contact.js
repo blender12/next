@@ -19,6 +19,7 @@ const upload=async(e)=>{
     let z={lname:Lname,Email:email,fname:Fname,Message:messg}
     let {data}=await axios.post("https://nextjss.netlify.app/api/hello",z);
     alert(data.messg)
+    console.log(process.env.mt);
 }
     return(
       
