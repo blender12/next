@@ -17,7 +17,7 @@ const upload=async(e)=>{
     formdata.append('email',email);
     formdata.append('messg',messg);
     let z={lname:Lname,Email:email,fname:Fname,Message:messg}
-    let {data}=await axios.post("http://localhost:3000/api/hello",z);
+    let {data}=await axios.post("https://nextjss.netlify.com/api/hello",z);
     alert(data.messg)
 }
     return(
