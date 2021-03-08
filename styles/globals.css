@@ -1,7 +1,9 @@
+
 html,
 body {
   padding: 0;
   margin: 0;
+  background-color:rgb(39, 37, 37);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -9,8 +11,152 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  color:black;
 }
+
 
 * {
   box-sizing: border-box;
+}
+
+.navBar{
+  width:75px;
+  height:100vh;
+  position:fixed;
+  background-color:rgb(49, 49, 49);
+  padding: .5rem;
+}
+
+.nav{
+  justify-content:center;
+  height:60%;
+  text-align:left;
+  padding: .5rem;
+}
+
+.w-hero{
+  font-size:390px;
+  position: relative;
+  text-align:center;
+  overflow:hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color:rgba(238, 4, 35, 0.918);
+  text-shadow: 1px 1px 1px #1adbd2,
+      2px 2px 1px #1adbd2,
+      3px 3px 1px #1adbd2,
+      4px 4px 1px #1adbd2,
+      5px 5px 1px #1adbd2,
+      6px 6px 1px #1adbd2,
+      7px 7px 1px #1adbd2,
+      8px 8px 1px #1adbd2,
+      9px 9px 1px #1adbd2,
+      10px 10px 1px #1adbd2,
+      11px 11px 1px #1adbd2,
+      12px 12px 1px #1adbd2,
+      13px 13px 1px #1adbd2,
+      14px 14px 1px #1adbd2,
+  1px 18px 6px rgba(43, 43, 43, 0.4),
+  1px 18px 6px rgba(43, 43, 43, 0.4),
+  1px 18px 6px rgba(43, 43, 43, 0.4),
+  1px 18px 6px rgba(43, 43, 43, 0.4);
+  width:550px;
+  transform:rotate(-18deg);
+}
+
+.navbar-brand{
+  font-size:36px;
+  font-weight:bold;
+  transform:rotate(-2deg);
+  color:rgba(238, 4, 35, 0.918);
+  text-shadow: 2px 1px 1px #1adbd2,
+      2px 1px 1px #1adbd2,
+      2px 1px 1px #1adbd2;
+  text-decoration:none;
+}
+
+.navbar-brand:hover{
+  color:rgba(238, 4, 35, 0.918);
+  text-shadow: 2px 1px 1px #1adbd2,
+  2px 1px 1px #1adbd2,
+  2px 1px 1px #1adbd2;
+}
+.navBar-link{
+   color:grey;
+   font-size:20px;
+}
+
+a:hover,.frm_submit_btn:hover,.dwnld_btn:hover{
+  color:#1adbd2;
+  text-decoration:none;
+  
+
+}
+
+.heading{
+  color:#1adbd2;
+}
+
+
+.main{
+  height:100vh;
+  color:white;
+  font-size:15px;
+
+}
+
+.hero span:hover{
+  color:rgba(238, 4, 35, 0.918);
+  border:1px solid red;
+  text-shadow: 2px 1px 1px #1adbd2,
+      2px 1px 1px #1adbd2,
+      2px 1px 1px #1adbd2;
+      cursor:none;
+}
+
+.child .hero h1{
+  font-size:52px;
+  color:white;
+}
+
+.child .hero .W{
+  color:rgba(238, 4, 35, 0.918);
+  text-shadow: 2px 1px 1px #1adbd2,
+      2px 1px 1px #1adbd2,
+      2px 1px 1px #1adbd2;
+}
+.child .hero .W:hover{
+  color:white;
+  text-shadow:none;
+}
+
+.frm_submit_btn,.dwnld_btn{
+  background-color:transparent;
+  color:#1adbd2;
+  border-width:thin;
+  border:1px solid #1adbd2;
+}
+
+.contact{
+  width:100%;
+  height:100%;
+}
+
+.frm_contact input,.frm_contact textarea{
+  background-color:rgb(49, 49, 49);
+  border:1px solid #1adbd2;
+  color:white;
+  outline-style: none;
+  box-shadow: none;
+}
+.frm_contact input:focus,.frm_contact textarea:focus{
+  background-color:rgb(49, 49, 49);
+  border:1px solid #1adbd2;
+  color:white;
+  outline-style: none;
+}
+
+form input:invalid{
+  border:1px solid red;
 }

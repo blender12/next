@@ -1,5 +1,9 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import {Mail} from '../../utils/mail';
 
-export default (req, res) => {
-  res.status(200).json({ name: 'John Doe' })
+
+export default function handler (req,res){
+    if (req.method === 'POST') {
+         Mail(req.body.Email,req.body.Message);
+         res.json({messg:'sent'});
+      }
 }
