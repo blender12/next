@@ -1,8 +1,9 @@
 import {Mail} from '../../utils/mail';
 
 
-export default function handler (req,res){
+export default async(req,res)=>{
     if (req.method === 'POST') {
-         res.json({messg:req.body.email});
+        await res.json({messg:req.body.email});
       }
+      res.json("good");
 }
