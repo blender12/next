@@ -1,4 +1,4 @@
-/*import {Mail} from '../../utils/mail';*/
+import {Mail} from '../../utils/mail';
 
 
 export default async(req,res)=>{

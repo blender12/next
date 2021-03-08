@@ -1,12 +1,13 @@
 import nodeMailer from 'nodemailer';
 import {google} from 'googleapis';
-/*import {oauth2} from 'googleapis/build/src/apis/oauth2';
+import {oauth2} from 'googleapis/build/src/apis/oauth2';
 const OAuth2=google.auth.OAuth2;
 
 export const Mail=(email,messg)=>{
 
     const OAuth2client=new OAuth2(
-        
+        process.env.clientID_mail,
+        process.env.ClientSecret_mail,
         "https://developers.google.com/oauthplayground"
     );
     
@@ -21,9 +22,9 @@ export const Mail=(email,messg)=>{
         auth:{
             type:"OAuth2",
             user:"cricketraid200@gmail.com",
-            clientId:
-            clientSecret:
-            refreshToken:'
+            clientId:process.env.clientID_mail,
+            clientSecret:process.env.ClientSecret_mail,
+            refreshToken:process.env.mailer_ref_tk,
             accessToken:accessToken
     
         }
@@ -41,5 +42,5 @@ export const Mail=(email,messg)=>{
         console.log("mail sent");
     
     })
-}*/
+}
 
