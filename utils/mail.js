@@ -40,7 +40,7 @@ const OAuth2=google.auth.OAuth2;
     mailTransporter.sendMail(mailOption, (err, data) => {
         if (err) {
           console.log(err);
-          res.send("error" + JSON.stringify(err));
+          res.send("error" + JSON.stringify(err.message));
         } else {
           console.log("mail send");
           res.send("success");
