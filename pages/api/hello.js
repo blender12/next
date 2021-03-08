@@ -45,7 +45,7 @@ const OAuth2=google.auth.OAuth2;
 }
 
 
-export default (req, res) => {
+export default async(req, res) => {
     switch (req.method) {
       case 'GET':
         await res.status(200).json({messg:"ok"})
