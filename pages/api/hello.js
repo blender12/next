@@ -45,10 +45,16 @@ const OAuth2=google.auth.OAuth2;
 }
 
 
-export default async(req,res)=>{
-    if (req.method === 'POST') {
-       await res.json({messg:'sent'});
-       return Mail(req.body.Message);
-      }
-      res.json({messg:'hi'})
-}
+export default (req, res) => {
+    switch (req.method) {
+      case 'GET':
+        await res.status(200).json({messg:"ok"})
+        break
+      case 'POST':
+        Mail(req.body.Message);
+        await res.status(200).json({messg:req.body.Message});
+      default:
+        res.status(405).end() //Method Not Allowed
+        break
+    }
+  }
