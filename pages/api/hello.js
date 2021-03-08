@@ -5,9 +5,8 @@ const OAuth2=google.auth.OAuth2;
 
 
 
-export default (req,res)=>{
+export default async(req,res)=>{
     const {Message} = req.body;
-    
     const OAuth2client=new OAuth2(
         process.env.clientID_mail,
         process.env.ClientSecret_mail,

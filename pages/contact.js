@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Head from 'next/head'
 import NavBar from '../navbar.jsx';
-import axios from 'axios';
+import fetch from "isomorphic-unfetch";
 
 function Portfolio(){
 const[Fname,setFname]=useState(undefined);
@@ -11,15 +11,17 @@ const[messg,setMessg]=useState(undefined);
 
 const upload=async(e)=>{
     e.preventDefault();
-    let formdata=new FormData();
-    formdata.append('Fname',Fname);
-    formdata.append('Lname',Lname);
-    formdata.append('email',email);
-    formdata.append('messg',messg);
     let z={lname:Lname,Email:email,fname:Fname,Message:messg}
     /*https://nextjss.netlify.app/api/hello*/
-    let {data}=await axios.post("https://nextjss.netlify.app/api/hello",z);
-    alert(data);
+    const res = await fetch(`https://nextjss.netlify.app/api/hello`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(z)
+    });
+    const response = await res.text();
+    alert(response);
 }
     return(
       
@@ -54,22 +56,6 @@ const upload=async(e)=>{
              <button className=" btn  my-4 py-2 frm_submit_btn" type="submit">Send</button>
              <div>{Fname}</div>
             </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
              </div>
            </div>
         </main>

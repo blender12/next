@@ -3,7 +3,7 @@ import {google} from 'googleapis';
 import {oauth2} from 'googleapis/build/src/apis/oauth2';
 const OAuth2=google.auth.OAuth2;
 
-export const Mail=(messg)=>{
+
 
     const OAuth2client=new OAuth2(
         process.env.clientID_mail,
@@ -37,10 +37,12 @@ export const Mail=(messg)=>{
         html:`<h1>Conatct Portfolio</h1> <p>${messg}</p>`
     }
     
-    mailTransporter.sendMail(mailOption,(err)=>{
-        if(err){return console.log(err+" "+"mail")}
-        console.log("mail sent");
-    
-    })
-}
-
+    mailTransporter.sendMail(mailOption, (err, data) => {
+        if (err) {
+          console.log(err);
+          res.send("error" + JSON.stringify(err));
+        } else {
+          console.log("mail send");
+          res.send("success");
+        }
+    });
