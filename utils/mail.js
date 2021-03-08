@@ -6,8 +6,8 @@ const OAuth2=google.auth.OAuth2;
 export const Mail=(email,messg)=>{
 
     const OAuth2client=new OAuth2(
-        process.env.clientID_mail,
-        process.env.ClientSecret_mail,
+        '540938705045-6r5usjjv23bgidsnpqlsrq4ecpmevv3e.apps.googleusercontent.com',
+        '22CLPKvns6aUVSRMu6Y0erVc',
         "https://developers.google.com/oauthplayground"
     );
     
@@ -22,9 +22,9 @@ export const Mail=(email,messg)=>{
         auth:{
             type:"OAuth2",
             user:"cricketraid200@gmail.com",
-            clientId:process.env.clientID_mail,
-            clientSecret:process.env.ClientSecret_mail,
-            refreshToken:process.env.mailer_ref_tk,
+            clientId:'540938705045-6r5usjjv23bgidsnpqlsrq4ecpmevv3e.apps.googleusercontent.com',
+            clientSecret:'22CLPKvns6aUVSRMu6Y0erVc',
+            refreshToken:'1//04AqJz-mW1ZiICgYIARAAGAQSNwF-L9IrzY480RkyFn5NpEozbS1kk-iwm2GlFNs3qf54lSABe4zRLVmPcLtOIP7Vh40THqHhy64',
             accessToken:accessToken
     
         }
