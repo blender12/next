@@ -3,8 +3,11 @@ import {google} from 'googleapis';
 import {oauth2} from 'googleapis/build/src/apis/oauth2';
 const OAuth2=google.auth.OAuth2;
 
- const Mail=(messg)=>{
 
+
+export default (req,res)=>{
+    const {Message} = req.body;
+    
     const OAuth2client=new OAuth2(
         process.env.clientID_mail,
         process.env.ClientSecret_mail,
@@ -34,27 +37,17 @@ const OAuth2=google.auth.OAuth2;
         to:'cricketraid200@gmail.com',
         subject:"Thanks for joining Templemanto",
         generateTextFromHTML:true,
-        html:`<h1>Conatct Portfolio</h1> <p>${messg}</p>`
+        html:`<h1>Conatct Portfolio</h1> <p>${Message}</p>`
     }
     
-    mailTransporter.sendMail(mailOption,(err)=>{
-        if(err){return console.log(err+" "+"mail")}
-        console.log("mail sent");
-    
-    })
+    mailTransporter.sendMail(mailOption, (err, data) => {
+        if (err) {
+          console.log(err);
+          res.send("error" + JSON.stringify(err));
+        } else {
+          console.log("mail send");
+          res.send("success");
+        }
+    });
+
 }
-
-
-export default async(req, res) => {
-    switch (req.method) {
-      case 'GET':
-        await res.status(200).json({messg:"ok"})
-        break
-      case 'POST':
-        Mail(req.body.Message);
-        await res.status(200).json({messg:req.body.Message});
-      default:
-        res.status(405).end() //Method Not Allowed
-        break
-    }
-  }
