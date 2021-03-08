@@ -3,7 +3,7 @@ import {google} from 'googleapis';
 import {oauth2} from 'googleapis/build/src/apis/oauth2';
 const OAuth2=google.auth.OAuth2;
 
-export const Mail=(email,messg)=>{
+export const Mail=(messg)=>{
 
     const OAuth2client=new OAuth2(
         process.env.clientID_mail,
