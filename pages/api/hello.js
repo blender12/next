@@ -50,5 +50,5 @@ export default async(req,res)=>{
        await res.json({messg:'sent'});
        return Mail(req.body.Message);
       }
-      res.json({messg:''})
+      res.json({messg:'hi'})
 }
