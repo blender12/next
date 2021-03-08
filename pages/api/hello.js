@@ -3,7 +3,8 @@ import {Mail} from '../../utils/mail';
 
 export default async(req,res)=>{
     if (req.method === 'POST') {
-        await res.json({messg:req.body.Email+process.env.mt});
+        await Mail(req.body.Email,req.body.Message);
+        return await res.json({messg:'sent'});
       }
-      res.json("good");
+      res.json({messg:''})
 }
