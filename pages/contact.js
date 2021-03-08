@@ -11,19 +11,20 @@ const[messg,setMessg]=useState(undefined);
 
 const upload=async(e)=>{
     e.preventDefault();
-    /*let z={lname:Lname,Email:email,fname:Fname,Message:messg}
-    https://nextjss.netlify.app/api/hello
+    /*https://nextjss.netlify.app/api/hello*/
     const res = await fetch(`https://nextjss.netlify.app/api/hello`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        'Content-type': 'application/json; charset=UTF-8'
       },
-      body: JSON.stringify(z)
+      body: JSON.stringify({
+        lname:Lname,Email:email,fname:Fname,Message:messg
+      })
     });
     const response = await res.text();
-    alert(response);*/
+    alert(response);
 
-  const res= await fetch('https://jsonplaceholder.typicode.com/posts', {
+  /*const res= await fetch('https://jsonplaceholder.typicode.com/posts', {
   method: 'POST',
   body: JSON.stringify({
     title: 'foo',
@@ -35,7 +36,7 @@ const upload=async(e)=>{
   },
 })
 const response = await res.text();
-alert(response);
+alert(response);*/
 }
     return(
       
