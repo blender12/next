@@ -1,20 +1,19 @@
-import mongoose from "mongoose";
 
-const connection = {};
+import mongoose from 'mongoose';
 
-async function connectDb() {
-  if (connection.isConnected) {
-    console.log("Using existing connection");
-    return;
+const connectDB = handler => async (req, res) => {
+  if (mongoose.connections[0].readyState) {
+    // Use current db connection
+    return handler(req, res);
   }
-  const db = await mongoose.connect(process.env.MONGO_SRV, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
+  // Use new db connection
+  await mongoose.connect(process.env.MONGO_SRV, {
+    useUnifiedTopology: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useCreateIndex: true,
+    useNewUrlParser: true
   });
-  console.log("DB Connected");
-  connection.isConnected = db.connections[0].readyState;
-}
+  return handler(req, res);
+};
 
-export default connectDb;
+export default connectDB;

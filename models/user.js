@@ -7,5 +7,7 @@ const userSchema=new Schema({
     }],createdAt:String
 });
 
+mongoose.models = {};
+
 const user=mongoose.model('user',userSchema);
  export default user;
