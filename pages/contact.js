@@ -22,7 +22,7 @@ const upload=async(e)=>{
     console.log(response);
     alert(response);*/
 
-  const res= await fetch('http://localhost:3000/api/hello', {
+  const res= await fetch('https://nextjss.netlify.app/api/hello', {
   method: 'POST',
   body: JSON.stringify({
     username: 'xxxwasiq',
