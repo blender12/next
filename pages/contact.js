@@ -43,6 +43,7 @@ alert(response);*/
       <div className="row container-fluid">
         <Head>
         <title>Portfolio - Contact Me</title>
+        <meta name="google-site-verification" content="L_8IesjNeqyFnc_9Nxdf0X7SHPdnSLfTzLcQ8Qc_2Mk" />
         <link rel="icon" href="logo.png" />
        </Head>
        <NavBar/>
