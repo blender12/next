@@ -3,3 +3,7 @@
   functions = "out_functions"
   publish   = "out_publish"
 
+[[redirects]]
+from="/api/*"
+to="/.netlify/functions/:splat"
+status=200
