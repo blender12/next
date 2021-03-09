@@ -1,52 +1,14 @@
-import nodeMailer from 'nodemailer';
-import {google} from 'googleapis';
-import {oauth2} from 'googleapis/build/src/apis/oauth2';
-const OAuth2=google.auth.OAuth2;
 
+import User from '../../models/user';
+import connectDb from '../../utils/db';
 
+connectDb();
 
-export default async(req,res)=>{
-    const {Message} = req.body;
-    const OAuth2client=new OAuth2(
-        process.env.clientID_mail,
-        process.env.ClientSecret_mail,
-        "https://developers.google.com/oauthplayground"
-    );
-    
-    OAuth2client.setCredentials({
-        refresh_token:process.env.mailer_ref_tk
-    });
-    
-    const accessToken=OAuth2client.getAccessToken();
-    
-    const mailTransporter=nodeMailer.createTransport({
-        service:"gmail",
-        auth:{
-            type:"OAuth2",
-            user:"cricketraid200@gmail.com",
-            clientId:process.env.clientID_mail,
-            clientSecret:process.env.ClientSecret_mail,
-            refreshToken:process.env.mailer_ref_tk,
-            accessToken:accessToken
-    
-        }
-    });
-    
-    const mailOption={
-        to:'cricketraid200@gmail.com',
-        subject:"Thanks for joining Templemanto",
-        generateTextFromHTML:true,
-        html:`<h1>Conatct Portfolio</h1> <p>${Message}</p>`
+export default async (req, res) => {
+    if(req.method==='POST'){
+        let user=await User({username:req.body.username,email:req.body.Email}).save();
+         return res.json(user);
     }
-    
-    mailTransporter.sendMail(mailOption, (err, data) => {
-        if (err) {
-          console.log(err);
-          res.send("error" + JSON.stringify(err));
-        } else {
-          console.log("mail send");
-          res.send("success");
-        }
-    });
-
+    let user=await User.find({});
+     res.json(user);
 }

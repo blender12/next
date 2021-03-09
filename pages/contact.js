@@ -12,31 +12,29 @@ const[messg,setMessg]=useState(undefined);
 const upload=async(e)=>{
     e.preventDefault();
     /*https://nextjss.netlify.app/api/hello*/
-    const res = await fetch(`https://nextjss.netlify.app/api/hello`, {
-      method: "POST",
+    /*const res = await fetch(`http://localhost:3000/api/hello`, {
+      method: "GET",
       headers: {
         'Content-type': 'application/json; charset=UTF-8'
       },
-      body: JSON.stringify({
-        lname:Lname,Email:email,fname:Fname,Message:messg
-      })
     });
-    const response = await res.text();
-    alert(response);
+    const response = await res.json();
+    console.log(response);
+    alert(response);*/
 
-  /*const res= await fetch('https://jsonplaceholder.typicode.com/posts', {
+  const res= await fetch('http://localhost:3000/api/hello', {
   method: 'POST',
   body: JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
+    username: 'xxxwasiq',
+    Email:email,
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
-const response = await res.text();
-alert(response);*/
+const response1 = await res.json();
+console.log(response1);
+alert(response1);
 }
     return(
       
