@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import Head from 'next/head'
-import * as apiall from '../utils/apicall';
 import NavBar from '../navbar.jsx';
 import axios from 'axios';
+
+
 
 function Portfolio(){
 const[Fname,setFname]=useState(undefined);
@@ -23,8 +24,8 @@ const upload=async(e)=>{
     console.log(response);
     alert(response);*/
 
-  const {data}=await axios.post(process.env.URL,{name:'wasiq',email:"wasiq.devil@gmail.com",Message:"good"})
-  alert(data);
+  const {data}=await axios.post(process.env.NEXT_PUBLIC_URL_POST,{name:Fname,email:email,Message:messg})
+  alert('email sent');
   console.log(data);
 }
     return(
@@ -41,7 +42,7 @@ const upload=async(e)=>{
              <div className="contact p-4 w-50 mx-auto">
              <h1 className="text-center my-3 heading">Contact Me</h1>
              <p className="my-3">
-                I am interested in freelance opportunities - especially ambitious or large projects.However, if you have other requests or questions, don't hesitate to contact me using below from either.
+               I am interested in freelance opportunities - especially ambitious or large projects.However, if you have other requests or questions, don't hesitate to contact me using below from either.
              </p>
             <form className="form-group frm_contact my-3" onSubmit={upload}>
              <div className="name d-flex my-2">
