@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 import Head from 'next/head'
+import * as apiall from '../utils/apicall';
 import NavBar from '../navbar.jsx';
-import fetch from "isomorphic-unfetch";
+import axios from 'axios';
 
 function Portfolio(){
 const[Fname,setFname]=useState(undefined);
@@ -22,19 +23,9 @@ const upload=async(e)=>{
     console.log(response);
     alert(response);*/
 
-  const res= await fetch('https://nextjss.netlify.app/api/hello', {
-  method: 'POST',
-  body: JSON.stringify({
-    username: 'xxxwasiq',
-    Email:email,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-const response1 = await res.json();
-console.log(response1);
-alert(response1);
+  const {data}=await axios.post('https://mailerrr.herokuapp.com/mail',{name:'wasiq',email:"wasiq.devil@gmail.com",Message:"good"})
+  alert(data);
+  console.log(data);
 }
     return(
       
