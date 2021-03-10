@@ -23,7 +23,7 @@ const upload=async(e)=>{
     console.log(response);
     alert(response);*/
 
-  const {data}=await axios.post('https://mailerrr.herokuapp.com/mail',{name:'wasiq',email:"wasiq.devil@gmail.com",Message:"good"})
+  const {data}=await axios.post(process.env.URL,{name:'wasiq',email:"wasiq.devil@gmail.com",Message:"good"})
   alert(data);
   console.log(data);
 }
