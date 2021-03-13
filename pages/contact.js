@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import Head from 'next/head'
 import NavBar from '../navbar.jsx';
 import axios from 'axios';
-
+import * as apii from '../apifld/a';
 
 
 function Portfolio(){
@@ -23,8 +23,8 @@ const upload=async(e)=>{
     const response = await res.json();
     console.log(response);
     alert(response);*/
-
-  const {data}=await axios.post(process.env.NEXT_PUBLIC_URL_POST,{name:Fname,email:email,Message:messg})
+ let user={name:Fname,email:email,Message:messg}
+  const {data}=await apii.apiget(user);
   alert('email sent');
   console.log(data);
 }
